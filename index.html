@@ -30,11 +30,11 @@
         a:hover { color: var(--red-dark); text-decoration: underline; }
 
         /* ---- Top red bar ---- */
-        .topbar {
-            height: 150px;
-            background: linear-gradient(180deg, var(--red-dark) 0%, var(--red) 55%, #e84b51 100%);
-            /* \______/ trapezoid: full width on top, tapering inward toward the bottom */
-            clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
+        .banner {
+            height: 72px;
+            background: linear-gradient(180deg, var(--red-dark) 0%, var(--red) 100%);
+            border-bottom: 3px solid var(--red-dark);
+            margin-bottom: 44px;
         }
 
         .container {
@@ -162,7 +162,7 @@
         }
 
         @media (max-width: 560px) {
-            .topbar { height: 90px; }
+            .banner { height: 52px; margin-bottom: 32px; }
             header.top { flex-direction: column; gap: 20px; }
             .portrait { width: 150px; }
             ul.interests { grid-template-columns: 1fr; }
@@ -170,9 +170,9 @@
     </style>
 </head>
 <body>
-    <div class="topbar" aria-hidden="true"></div>
-
     <div class="container">
+
+        <div class="banner" aria-hidden="true"></div>
 
         <header class="top">
             <img src="Head.jpg" alt="Portrait of Zhongfu Liu" class="portrait">
