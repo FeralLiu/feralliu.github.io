@@ -7,135 +7,187 @@
     <title>Zhongfu Liu · Homepage</title>
     <style>
         :root {
-            --bg: #ffffff;
+            --red: #d71920;
+            --red-dark: #b01018;
+            --red-soft: #fef2f2;
+            --red-line: #f3b5b8;
+            --ink: #111827;
             --text: #1f2937;
             --muted: #6b7280;
-            --accent: #1d4ed8;
             --border: #e5e7eb;
-            --soft: #f9fafb;
+            --soft: #fafafa;
         }
         * { box-sizing: border-box; margin: 0; padding: 0; }
         html { -webkit-text-size-adjust: 100%; }
         body {
             font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
-            background: var(--bg);
+            background: #ffffff;
             color: var(--text);
             line-height: 1.65;
             font-size: 16px;
         }
-        a { color: var(--accent); text-decoration: none; }
-        a:hover { text-decoration: underline; }
+        a { color: var(--red); text-decoration: none; }
+        a:hover { color: var(--red-dark); text-decoration: underline; }
+
+        /* ---- Top red bar ---- */
+        .topbar {
+            height: 5px;
+            background: linear-gradient(90deg, var(--red-dark), var(--red) 45%, #e84b51);
+        }
 
         .container {
             max-width: 880px;
             margin: 0 auto;
-            padding: 48px 24px 64px;
+            padding: 44px 24px 64px;
         }
 
         /* ---- Header ---- */
         header.top {
             display: flex;
-            gap: 28px;
+            gap: 32px;
             align-items: flex-start;
             flex-wrap: wrap;
-            padding-bottom: 28px;
+            padding-bottom: 30px;
             border-bottom: 1px solid var(--border);
         }
-        .photo {
-            flex: 0 0 150px;
-            width: 150px;
-            height: 180px;
-            border: 2px dashed var(--border);
+        .portrait {
+            flex: 0 0 auto;
+            width: 190px;
+            height: auto; /* preserves Head.jpg's natural 1362:1277 ratio — no crop */
             border-radius: 8px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: var(--muted);
-            font-size: 0.85rem;
-            text-align: center;
+            border: 1px solid var(--border);
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
             background: var(--soft);
-            /* TODO: replace this box with your photo:
-               <img src="photo.jpg" alt="Zhongfu Liu" style="width:150px;height:180px;object-fit:cover;border-radius:8px;"> */
         }
         .identity { flex: 1 1 320px; min-width: 260px; }
-        .identity h1 { font-size: 2.1rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+        .identity h1 {
+            font-size: 2.15rem;
+            font-weight: 700;
+            line-height: 1.15;
+            letter-spacing: -0.01em;
+            color: var(--ink);
+        }
         .identity .handle { color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
-        .affiliation { font-size: 1.05rem; color: #374151; margin-top: 8px; }
+        .affiliation { font-size: 1.05rem; color: #374151; margin-top: 10px; }
+        .affiliation strong { color: var(--ink); }
         .affiliation .status {
             display: inline-block;
             font-size: 0.72rem;
             font-weight: 600;
-            color: #166534;
-            background: #dcfce7;
+            color: var(--red-dark);
+            background: var(--red-soft);
+            border: 1px solid var(--red-line);
             border-radius: 999px;
             padding: 1px 10px;
             margin-left: 6px;
             vertical-align: middle;
         }
-        .contact { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 20px; }
-        .contact a { font-weight: 500; }
-        .contact .icon { margin-right: 4px; }
+
+        /* ---- Topic tags ---- */
+        .tags {
+            list-style: none;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 7px;
+            margin-top: 16px;
+        }
+        .tags li {
+            font-size: 0.78rem;
+            font-weight: 600;
+            color: var(--red-dark);
+            background: var(--red-soft);
+            border: 1px solid var(--red-line);
+            border-radius: 4px;
+            padding: 2px 10px;
+            letter-spacing: 0.01em;
+        }
+
+        .contact { margin-top: 16px; display: flex; flex-wrap: wrap; gap: 8px 22px; }
+        .contact a { font-weight: 600; }
+        .contact .icon { margin-right: 5px; }
 
         /* ---- Sections ---- */
-        main { margin-top: 8px; }
-        section { margin-top: 34px; }
+        main { margin-top: 6px; }
+        section { margin-top: 36px; }
         h2 {
-            font-size: 1.15rem;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            font-size: 1.05rem;
             font-weight: 700;
             text-transform: uppercase;
-            letter-spacing: 0.04em;
-            color: #111827;
-            margin-bottom: 12px;
-            padding-bottom: 6px;
-            border-bottom: 2px solid var(--text);
+            letter-spacing: 0.07em;
+            color: var(--ink);
+            margin-bottom: 14px;
+        }
+        h2::before {
+            content: "";
+            width: 4px;
+            height: 1.05em;
+            background: var(--red);
+            border-radius: 2px;
+            flex: 0 0 auto;
         }
         p + p { margin-top: 10px; }
-        ul.interests { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 28px; }
+        p strong { color: var(--ink); }
+
+        ul.interests { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 7px 28px; }
         ul.interests li { position: relative; padding-left: 18px; }
-        ul.interests li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+        ul.interests li::before { content: "·"; position: absolute; left: 3px; color: var(--red); font-weight: 700; }
 
         .edu-item { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        .edu-item strong { color: var(--ink); }
         .edu-item .where { color: var(--muted); font-size: 0.95rem; }
-        .edu-item .when { color: var(--muted); white-space: nowrap; }
+        .edu-item .when { color: var(--red-dark); font-weight: 600; white-space: nowrap; }
 
-        .project { margin-bottom: 18px; }
-        .project h3 { font-size: 1.02rem; font-weight: 600; color: #111827; }
-        .project .tags { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px; }
-        .tag {
-            font-size: 0.72rem; font-weight: 500; color: var(--accent);
-            background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 4px; padding: 1px 8px;
+        .project { margin-bottom: 20px; }
+        .project h3 { font-size: 1.02rem; font-weight: 600; color: var(--ink); }
+        .project .tags { margin-top: 8px; gap: 6px; }
+        .project .tag {
+            font-size: 0.7rem; font-weight: 600; color: var(--red-dark);
+            background: #ffffff; border: 1px solid var(--red-line); border-radius: 4px; padding: 1px 8px;
         }
 
         .skills ul { list-style: none; }
-        .skills li { padding: 5px 0; border-bottom: 1px solid var(--soft); }
-        .skills b { color: #111827; display: inline-block; min-width: 150px; }
+        .skills li { padding: 6px 0; border-bottom: 1px solid var(--soft); }
+        .skills b { color: var(--ink); display: inline-block; min-width: 150px; }
 
         .muted { color: var(--muted); font-style: italic; }
 
         footer {
-            margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--border);
+            margin-top: 48px; padding-top: 18px; border-top: 2px solid var(--red);
             color: var(--muted); font-size: 0.8rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
         }
 
         @media (max-width: 560px) {
-            header.top { flex-direction: column; }
+            header.top { flex-direction: column; gap: 20px; }
+            .portrait { width: 150px; }
             ul.interests { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <div class="topbar" aria-hidden="true"></div>
+
     <div class="container">
 
         <header class="top">
-            <div class="photo" aria-label="Profile photo placeholder">Photo</div>
+            <img src="Head.jpg" alt="Portrait of Zhongfu Liu" class="portrait">
             <div class="identity">
                 <h1>Zhongfu Liu</h1>
                 <div class="handle">online: Feral Liu</div>
                 <div class="affiliation">
-                    Master's Student · Control Science and Engineering
+                    <strong>Master's Student</strong> · Control Science and Engineering
                     <span class="status">In progress</span><br>
                     Northeastern University, Shenyang, China
                 </div>
+                <ul class="tags">
+                    <li>Multimodal Fusion</li>
+                    <li>3D Object Detection</li>
+                    <li>Autonomous Driving</li>
+                    <li>Embedded Systems</li>
+                    <li>C++ Backend</li>
+                </ul>
                 <div class="contact">
                     <a href="mailto:2640487101l@gmail.com"><span class="icon">✉</span>Email</a>
                     <a href="https://github.com/FeralLiu" target="_blank" rel="noopener"><span class="icon">⌥</span>GitHub</a>
