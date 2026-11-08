@@ -1,0 +1,22 @@
+个人档案备份 / Personal Profile (Backup)
+========================================
+
+姓名 / Name           : 刘仲富 / Zhongfu Liu
+网络昵称 / Handle      : Feral Liu (GitHub: FeralLiu)
+邮箱 / Email          : 2640487101l@gmail.com
+
+学历 / Education      : 东北大学 硕士 (Northeastern University, Master's)
+专业 / Major          : 控制科学与工程 (Control Science and Engineering)
+状态 / Status         : 在读 (Currently studying)
+
+研究方向 / Research   : 多模态融合目标检测 (Multimodal Fusion for 3D Object Detection)
+技术栈 / Tech Stack   : mmdetection3d, PyTorch, C/C++, Python, 嵌入式 (embedded), C++ 后端
+
+论文著作 / Publications: 暂无 (None yet)
+
+奖项荣誉 / Awards     : 待补充 (To be added)
+项目经历 / Projects   : 待补充 (To be added)
+
+个人主页 / Homepage   : https://feralliu.github.io
+GitHub                : https://github.com/FeralLiu
+Notion (C++ 笔记)     : https://www.notion.so/lzf-note/C-2185eac702f980f3a0c4c65d5c133f09?source=copy_link

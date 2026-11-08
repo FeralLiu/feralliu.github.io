@@ -1,83 +1,234 @@
 <!DOCTYPE html>
-<html lang="zh-CN">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Feral Liu | Home</title>
+    <meta name="description" content="Zhongfu Liu — Master's student in Control Science and Engineering at Northeastern University. Research on multimodal fusion for 3D object detection.">
+    <title>Zhongfu Liu · Homepage</title>
     <style>
+        :root {
+            --bg: #ffffff;
+            --text: #1f2937;
+            --muted: #6b7280;
+            --accent: #1d4ed8;
+            --border: #e5e7eb;
+            --soft: #f9fafb;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        html { -webkit-text-size-adjust: 100%; }
         body {
-            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Helvetica, Arial, sans-serif;
-            line-height: 1.6;
-            color: #333;
-            max-width: 600px;
-            margin: 80px auto;
-            padding: 0 20px;
-            background-color: #f6f8fa;
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Helvetica Neue", Arial, sans-serif;
+            background: var(--bg);
+            color: var(--text);
+            line-height: 1.65;
+            font-size: 16px;
         }
-        h1 {
-            font-size: 2.5rem;
-            margin-bottom: 10px;
-            color: #24292e;
+        a { color: var(--accent); text-decoration: none; }
+        a:hover { text-decoration: underline; }
+
+        .container {
+            max-width: 880px;
+            margin: 0 auto;
+            padding: 48px 24px 64px;
         }
-        .bio {
-            font-size: 1.2rem;
-            color: #586069;
-            margin-bottom: 40px;
-        }
-        .nav-links {
+
+        /* ---- Header ---- */
+        header.top {
             display: flex;
-            flex-direction: column;
-            gap: 15px;
+            gap: 28px;
+            align-items: flex-start;
+            flex-wrap: wrap;
+            padding-bottom: 28px;
+            border-bottom: 1px solid var(--border);
         }
-        .card {
-            background: white;
-            padding: 15px 20px;
+        .photo {
+            flex: 0 0 150px;
+            width: 150px;
+            height: 180px;
+            border: 2px dashed var(--border);
             border-radius: 8px;
-            border: 1px solid #e1e4e8;
-            text-decoration: none;
-            color: #0366d6;
-            font-weight: 500;
-            transition: all 0.2s ease;
             display: flex;
-            justify-content: space-between;
             align-items: center;
-        }
-        .card:hover {
-            border-color: #0366d6;
-            background-color: #f1f8ff;
-            transform: translateY(-2px);
-            box-shadow: 0 4px 12px rgba(0,0,0,0.05);
-        }
-        .card::after {
-            content: "→";
-            font-family: "serif";
-        }
-        footer {
-            margin-top: 60px;
-            font-size: 0.8rem;
-            color: #999;
+            justify-content: center;
+            color: var(--muted);
+            font-size: 0.85rem;
             text-align: center;
+            background: var(--soft);
+            /* TODO: replace this box with your photo:
+               <img src="photo.jpg" alt="Zhongfu Liu" style="width:150px;height:180px;object-fit:cover;border-radius:8px;"> */
+        }
+        .identity { flex: 1 1 320px; min-width: 260px; }
+        .identity h1 { font-size: 2.1rem; font-weight: 700; line-height: 1.2; letter-spacing: -0.01em; }
+        .identity .handle { color: var(--muted); font-size: 0.95rem; margin-top: 2px; }
+        .affiliation { font-size: 1.05rem; color: #374151; margin-top: 8px; }
+        .affiliation .status {
+            display: inline-block;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: #166534;
+            background: #dcfce7;
+            border-radius: 999px;
+            padding: 1px 10px;
+            margin-left: 6px;
+            vertical-align: middle;
+        }
+        .contact { margin-top: 14px; display: flex; flex-wrap: wrap; gap: 8px 20px; }
+        .contact a { font-weight: 500; }
+        .contact .icon { margin-right: 4px; }
+
+        /* ---- Sections ---- */
+        main { margin-top: 8px; }
+        section { margin-top: 34px; }
+        h2 {
+            font-size: 1.15rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.04em;
+            color: #111827;
+            margin-bottom: 12px;
+            padding-bottom: 6px;
+            border-bottom: 2px solid var(--text);
+        }
+        p + p { margin-top: 10px; }
+        ul.interests { list-style: none; display: grid; grid-template-columns: 1fr 1fr; gap: 6px 28px; }
+        ul.interests li { position: relative; padding-left: 18px; }
+        ul.interests li::before { content: "·"; position: absolute; left: 2px; color: var(--accent); font-weight: 700; }
+
+        .edu-item { display: flex; justify-content: space-between; gap: 16px; flex-wrap: wrap; }
+        .edu-item .where { color: var(--muted); font-size: 0.95rem; }
+        .edu-item .when { color: var(--muted); white-space: nowrap; }
+
+        .project { margin-bottom: 18px; }
+        .project h3 { font-size: 1.02rem; font-weight: 600; color: #111827; }
+        .project .tags { margin-top: 4px; display: flex; flex-wrap: wrap; gap: 6px; }
+        .tag {
+            font-size: 0.72rem; font-weight: 500; color: var(--accent);
+            background: #eff6ff; border: 1px solid #bfdbfe; border-radius: 4px; padding: 1px 8px;
+        }
+
+        .skills ul { list-style: none; }
+        .skills li { padding: 5px 0; border-bottom: 1px solid var(--soft); }
+        .skills b { color: #111827; display: inline-block; min-width: 150px; }
+
+        .muted { color: var(--muted); font-style: italic; }
+
+        footer {
+            margin-top: 48px; padding-top: 18px; border-top: 1px solid var(--border);
+            color: var(--muted); font-size: 0.8rem; display: flex; justify-content: space-between; flex-wrap: wrap; gap: 8px;
+        }
+
+        @media (max-width: 560px) {
+            header.top { flex-direction: column; }
+            ul.interests { grid-template-columns: 1fr; }
         }
     </style>
 </head>
 <body>
+    <div class="container">
 
-    <h1>I am Feral Liu.</h1>
-    <p class="bio">Doing my own thing.</p>
+        <header class="top">
+            <div class="photo" aria-label="Profile photo placeholder">Photo</div>
+            <div class="identity">
+                <h1>Zhongfu Liu</h1>
+                <div class="handle">online: Feral Liu</div>
+                <div class="affiliation">
+                    Master's Student · Control Science and Engineering
+                    <span class="status">In progress</span><br>
+                    Northeastern University, Shenyang, China
+                </div>
+                <div class="contact">
+                    <a href="mailto:2640487101l@gmail.com"><span class="icon">✉</span>Email</a>
+                    <a href="https://github.com/FeralLiu" target="_blank" rel="noopener"><span class="icon">⌥</span>GitHub</a>
+                    <a href="https://www.notion.so/lzf-note/C-2185eac702f980f3a0c4c65d5c133f09?source=copy_link" target="_blank" rel="noopener"><span class="icon">▤</span>C++ Notes</a>
+                </div>
+            </div>
+        </header>
 
-    <div class="nav-links">
-        <a href="https://www.notion.so/lzf-note/C-2185eac702f980f3a0c4c65d5c133f09?source=copy_link" class="card" target="_blank">
-            My C++ Study Notes (Notion)
-        </a>
+        <main>
+            <section id="about">
+                <h2>About</h2>
+                <p>
+                    I am a Master's student in Control Science and Engineering at
+                    <strong>Northeastern University</strong>, Shenyang, China. My research centers on
+                    <strong>multimodal fusion for 3D object detection</strong>, aiming to build robust
+                    perception systems that jointly exploit complementary sensor modalities such as
+                    cameras and LiDAR.
+                </p>
+                <p>
+                    Beyond research, I work on the engineering side of these systems — efficient deep
+                    learning pipelines, C++ backend development, and embedded platforms — to bring
+                    perception models closer to real-world deployment.
+                </p>
+            </section>
 
-        <a href="https://github.com/FeralLiu" class="card" target="_blank">
-            GitHub Profile
-        </a>
+            <section id="interests">
+                <h2>Research Interests</h2>
+                <ul class="interests">
+                    <li>Multimodal fusion (camera + LiDAR) for 3D object detection</li>
+                    <li>3D perception &amp; autonomous driving</li>
+                    <li>Efficient deep learning &amp; model deployment</li>
+                    <li>Embedded systems &amp; C++ backend engineering</li>
+                </ul>
+            </section>
 
-        <a href="./blog" class="card">
-            Technical Blog
-        </a>
+            <section id="education">
+                <h2>Education</h2>
+                <div class="edu-item">
+                    <div>
+                        <strong>M.Eng., Control Science and Engineering</strong>
+                        <div class="where">Northeastern University, Shenyang, China</div>
+                    </div>
+                    <div class="when">In progress</div>
+                </div>
+                <!-- TODO: add your Bachelor's degree here:
+                <div class="edu-item">
+                    <div><strong>B.Eng., ...</strong><div class="where">University</div></div>
+                    <div class="when">Year</div>
+                </div> -->
+            </section>
+
+            <section id="projects">
+                <h2>Selected Projects</h2>
+
+                <div class="project">
+                    <h3>Multimodal Fusion for 3D Object Detection</h3>
+                    <p>Exploring camera–LiDAR fusion pipelines for robust 3D detection, built on the
+                        mmdetection3d / OpenMMLab toolchain.</p>
+                    <div class="tags"><span class="tag">PyTorch</span><span class="tag">mmdetection3d</span><span class="tag">3D Perception</span></div>
+                </div>
+
+                <div class="project">
+                    <h3>C++ Backend &amp; Embedded Systems</h3>
+                    <p>Engineering work on C++ backend services and embedded platforms for deploying
+                        perception models efficiently.</p>
+                    <div class="tags"><span class="tag">C++</span><span class="tag">Embedded</span><span class="tag">Backend</span></div>
+                </div>
+
+                <!-- TODO: replace the above with your real projects (title, 1-2 line description, tech tags). -->
+            </section>
+
+            <section id="awards">
+                <h2>Awards &amp; Honors</h2>
+                <p class="muted">More information coming soon.</p>
+                <!-- TODO: add scholarships / competitions / honors here, e.g.:
+                <ul class="interests"><li>Award name — year</li></ul> -->
+            </section>
+
+            <section id="skills" class="skills">
+                <h2>Skills</h2>
+                <ul>
+                    <li><b>Languages</b> C / C++, Python</li>
+                    <li><b>Deep Learning</b> PyTorch, mmdetection3d, OpenMMLab</li>
+                    <li><b>Systems</b> Linux, Git, embedded development, C++ backend</li>
+                </ul>
+            </section>
+        </main>
+
+        <footer>
+            <span>© 2026 Zhongfu Liu</span>
+            <span>feralliu.github.io</span>
+        </footer>
+
     </div>
-
-    <footer>
-        &
+</body>
+</html>
