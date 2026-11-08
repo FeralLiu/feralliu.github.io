@@ -31,8 +31,10 @@
 
         /* ---- Top red bar ---- */
         .topbar {
-            height: 5px;
-            background: linear-gradient(90deg, var(--red-dark), var(--red) 45%, #e84b51);
+            height: 150px;
+            background: linear-gradient(180deg, var(--red-dark) 0%, var(--red) 55%, #e84b51 100%);
+            /* \______/ trapezoid: full width on top, tapering inward toward the bottom */
+            clip-path: polygon(0 0, 100% 0, 94% 100%, 6% 100%);
         }
 
         .container {
@@ -160,6 +162,7 @@
         }
 
         @media (max-width: 560px) {
+            .topbar { height: 90px; }
             header.top { flex-direction: column; gap: 20px; }
             .portrait { width: 150px; }
             ul.interests { grid-template-columns: 1fr; }
